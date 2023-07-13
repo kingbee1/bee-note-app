@@ -13,7 +13,7 @@ const EditNote = () => {
       </header>
       <form className="create-note__form">
         <input type="text" placeholder='title...' autoFocus />
-        <textarea rows="30" placeholder='write everthing here'></textarea>
+        <textarea rows="30" placeholder='write everthing here...'></textarea>
       </form>
     </section>
   )

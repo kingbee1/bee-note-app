@@ -4,7 +4,9 @@ import dummyNotes from '../dummy_notes'
 import { Link } from 'react-router-dom'
 import NoteItem from '../components/NoteItem'
 
-const Notes = () => {
+//accepting and destructuring the note props from App.js here.
+const Notes = ({notes}) => {
+  console.log({notes})
   return (
     <section>
       <header className='notes__header'>
@@ -15,7 +17,7 @@ const Notes = () => {
       <div className="notes__container">
     {
       //note prop at the end.
-      dummyNotes.map(note => <NoteItem key={[note.id]} note={note}/>)
+      notes.map(note => <NoteItem key={[note.id]} note={note}/>)
       
     }
       </div>

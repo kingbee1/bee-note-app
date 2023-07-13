@@ -3,13 +3,16 @@ import "./App.css";
 import Notes from "./pages/Notes";
 import CreateNote from "./pages/CreateNote";
 import EditNote from "./pages/EditNote";
+import { useState } from "react";
+import dummyNotes from './dummy_notes'
 
 function App() {
+  const [notes, setNotes] = useState("dummyNotes")
   return (
     <main id="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Notes />} />
+          <Route path="/" element={<Notes notes={notes}/>} />
           <Route path="/create" element={<CreateNote />} />
           <Route path="/edit/:id" element={<EditNote />} />
         </Routes>
