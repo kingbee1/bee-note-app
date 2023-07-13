@@ -15,8 +15,9 @@ const Notes = () => {
       </header>
       <div className="notes__container">
     {
-      //note props
-      dummyNotes.map(note => <NoteItem key={note.id} note={note}/>)
+      //note prop at the end.
+      dummyNotes.map(note => <NoteItem key={[note.id]} note={note}/>)
+      
     }
       </div>
       <Link><BsPlusLg className='btn add__btn'/></Link>
