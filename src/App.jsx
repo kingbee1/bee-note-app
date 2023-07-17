@@ -7,7 +7,8 @@ import { useState } from "react";
 import dummyNotes from './dummy_notes'
 
 function App() {
-  const [notes, setNotes] = useState("dummyNotes")
+  const [notes, setNotes] = useState(dummyNotes)
+//note equal to note state -line 16
   return (
     <main id="app">
       <BrowserRouter>

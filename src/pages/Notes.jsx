@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 import NoteItem from '../components/NoteItem'
 
 //accepting and destructuring the note props from App.js here.
-const Notes = ({notes}) => {
-  console.log({notes})
+//.map is not a function again. back to debug.
+const Notes = ({notes = []}) => {
+
+
   return (
     <section>
       <header className='notes__header'>
@@ -16,8 +18,10 @@ const Notes = ({notes}) => {
       </header>
       <div className="notes__container">
     {
+      
+      
       //note prop at the end.
-      notes.map(note => <NoteItem key={[note.id]} note={note}/>)
+      notes.map(note => <NoteItem key={note.id} note={note}/>)
       
     }
       </div>
