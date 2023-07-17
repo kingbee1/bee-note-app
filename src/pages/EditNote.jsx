@@ -25,7 +25,7 @@ const EditNote = ({notes, sn}) => {
       const newNote = {...notes, title, write, date}
 
       //now, map through.
-      const newNotes = notes.map(item, id => {
+      const newNotes = notes.map(item => {
         //if the item is same with unique id from url, then it will be the new note.
         if (item.id == id) {
           item = newNote
@@ -34,8 +34,17 @@ const EditNote = ({notes, sn}) => {
       })
       //to update note.
       sn(newNotes)
-      navigate('/')
     }
+    navigate('/')
+  }
+
+  const handleDelete = (e) => {
+    //filter notes passed prop. ensure note with current id isn't included.
+    const newNote = notes.filter(item => item.id != id)
+
+    //update note e=with the passed state updating function sn to the new note array we have.
+    sn(newNote)
+    navigate('/')
   }
 
 
@@ -44,7 +53,7 @@ const EditNote = ({notes, sn}) => {
       <header className="create-note__header">
         <Link to="/" className='btn'><IoIosArrowBack /></Link>
         <button className="btn lg primary"onClick={handleForm}>Save</button>
-        <button className="btn lg danger"><RiDeleteBin6Line /> </button>
+        <button className="btn lg danger" onClick={handleDelete}><RiDeleteBin6Line /> </button>
       </header>
       <form className="create-note__form" onSubmit={handleForm}>
         <input type="text" placeholder='title...' autoFocus value={title} onChange={(e) => setTitle(e.target.value)} />
