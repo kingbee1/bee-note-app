@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { IoIosArrowBack } from 'react-icons/io'
 import { useState } from 'react'
+import { v4 as uuid } from 'uuid'
 
 const CreateNote = () => {
   const [title, setTitle] = useState('')
@@ -8,7 +9,12 @@ const CreateNote = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({title, write})
+    //form validation to ensure if user actually enters a title writes note.
+    if (title && write) {
+      console.log({title, write})
+
+    }
+
   }
 
   return (
