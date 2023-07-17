@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IoIosArrowBack } from 'react-icons/io'
 import { useState } from 'react'
 //npm i uuid. a package that creates unique id.
@@ -6,10 +6,11 @@ import { v4 as uuid } from 'uuid'
 import useCreateDate from '../components/useCreateDate'
 
 
-const CreateNote = () => {
+const CreateNote = ({sn}) => {
   const [title, setTitle] = useState('')
   const [write, setWrite] = useState('')
   const date = useCreateDate()
+  const navigate = useNavigate()
  
 
   const handleSubmit = (e) => {
@@ -17,8 +18,12 @@ const CreateNote = () => {
     //form validation to ensure if user actually enters a title writes note.
     if (title && write) {
       //a function that creates an id for all note object created. 
+      //passed the title, the written note and the date inside the note object(with a unique id) created.
       const note = {id: uuid(), title, write, date}
-      console.log({note})
+      //add this note to the note array.
+      sn(prevNotes => [note, ...prevNotes])
+      //then redirect to note homepage so we can see what's new.
+      navigate('/')
     }
 
   }

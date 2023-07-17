@@ -4,18 +4,25 @@ import Notes from "./pages/Notes";
 import CreateNote from "./pages/CreateNote";
 import EditNote from "./pages/EditNote";
 import { useState } from "react";
-import dummyNotes from './dummy_notes'
+//import dummyNotes from './dummy_notes'
+import { useEffect } from "react";
 
 function App() {
-  const [notes, setNotes] = useState(dummyNotes)
-//note equal to note state -line 16
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || [])
+
+  useEffect(()=> {
+    localStorage.setItem('notes', JSON.stringify(notes))
+  }, [notes])
+
+  
+//note equal to note state -line 23
   return (
     <main id="app">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Notes notes={notes}/>} />
-          <Route path="/create" element={<CreateNote />} />
-          <Route path="/edit/:id" element={<EditNote />} />
+          <Route path="/create" element={<CreateNote sn={setNotes} />} />
+          <Route path="/edit/:id" element={<EditNote notes={notes} sn={setNotes} />} />
         </Routes>
       </BrowserRouter>
     </main>

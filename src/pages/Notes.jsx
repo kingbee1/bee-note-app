@@ -25,7 +25,7 @@ const Notes = ({ notes }) => {
       
     }
       </div>
-      <Link><BsPlusLg className='btn add__btn'/></Link>
+      <Link to={'/create'} className='btn add__btn'><BsPlusLg/></Link>
     </section>
   )
 }
