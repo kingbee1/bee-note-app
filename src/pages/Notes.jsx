@@ -6,7 +6,7 @@ import NoteItem from '../components/NoteItem'
 
 //accepting and destructuring the note props from App.js here.
 //.map is not a function again. back to debug.
-const Notes = ({notes = []}) => {
+const Notes = ({ notes }) => {
 
 
   return (
