@@ -8,21 +8,25 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function App() {
-  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || [])
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+  );
 
-  useEffect(()=> {
-    localStorage.setItem('notes', JSON.stringify(notes))
-  }, [notes])
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
-  
-//note equal to note state -line 23
+  //note equal to note state -line 23
   return (
     <main id="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Notes notes={notes}/>} />
-          <Route path="/create" element={<CreateNote sn={setNotes} />} />
-          <Route path="/edit/:id" element={<EditNote notes={notes} sn={setNotes} />} />
+          <Route path="/" element={<Notes notes={notes} />} />
+          <Route path="/create" element={<CreateNote setNotes={setNotes} />} />
+          <Route
+            path="/edit/:id"
+            element={<EditNote notes={notes} setNotes={setNotes} />}
+          />
         </Routes>
       </BrowserRouter>
     </main>
