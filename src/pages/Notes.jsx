@@ -38,6 +38,9 @@ const Notes = ({ notes }) => {
       </header>
       <div className="notes__container" >
 
+
+    {filteredNote.length == 0 && <p className='empty__notes'>None found.</p> }
+
     {
       //note prop at the end.
       filteredNote.map(note => <NoteItem key={note.id} note={note}/>)
