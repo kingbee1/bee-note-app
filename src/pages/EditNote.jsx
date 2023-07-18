@@ -39,12 +39,14 @@ const EditNote = ({notes, sn}) => {
   }
 
   const handleDelete = (e) => {
-    //filter notes passed prop. ensure note with current id isn't included.
+    if(window.confirm('Are you sure about that?')) {
+      //filter notes passed prop. ensure note with current id isn't included.
     const newNote = notes.filter(item => item.id != id)
 
     //update note e=with the passed state updating function sn to the new note array we have.
     sn(newNote)
     navigate('/')
+    }
   }
 
 
