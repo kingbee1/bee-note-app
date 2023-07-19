@@ -40,7 +40,7 @@ const Notes = ({ notes }) => {
   return (
     <section>
       <header className="notes__header">
-        {!displaySearch && <h2>Notes</h2>}
+        {!displaySearch && <h2>My Notes</h2>}
         {displaySearch && (
           <input
             type="text"
@@ -62,7 +62,7 @@ const Notes = ({ notes }) => {
       </header>
       <div className="notes__container">
         {filteredNote.length === 0 && (
-          <p className="empty__notes">None found.</p>
+          <p className="empty__notes">There's no note.</p>
         )}
 
         {

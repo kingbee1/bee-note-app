@@ -12,9 +12,11 @@
 
 :root {
     --color-bg-dark: #3a3a3a;
-    --color-bg-black: #111111;
+    /* --color-bg-black: #111111; */
+    --color-bg-black: #181818;
     --color-white: #fefefe;
-    --color-primary: #7634d8;
+    /* --color-primary: #7634d8; */
+    --color-primary: #5B9BFF;
     --color-danger: rgb(249, 84, 84);
 }
 
@@ -132,17 +134,26 @@ h2 {
     opacity: 0.9;
 }
 
-.note:nth-child(3) {
+/* this gives the note columns their arrangements */
+.note:nth-child(1) {
     grid-column: 1/3;
+    background-color: rgb(246, 118, 13);
 }
 
 .note:nth-child(4) {
     grid-row: 3/5;
+    background-color: rgb(190, 190, 78);
 }
 
 .note:nth-child(7) {
     grid-column: 1/3;
+    background-color: pink;
 }
+.note:nth-child(12) {
+    grid-column: 1/3;
+    background-color: #98cf0d;
+}
+
 
 .note p {
     font-size: 0.8rem;

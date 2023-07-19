@@ -40,7 +40,7 @@ const EditNote = ({ notes, setNotes }) => {
   };
 
   const handleDelete = (e) => {
-    if (window.confirm("Are you sure about that?")) {
+    if (window.confirm("Sure you want to delete??")) {
       //filter notes passed prop. ensure note with current id isn't included.
       const newNote = notes.filter((item) => item.id != id);
 
