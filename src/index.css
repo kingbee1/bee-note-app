@@ -142,7 +142,11 @@ h2 {
 
 .note:nth-child(4) {
     grid-row: 3/5;
-    background-color: rgb(190, 190, 78);
+    background: #87b80b;
+}
+
+.note:nth-child(5) {
+    background: #72b8bb;
 }
 
 .note:nth-child(7) {
@@ -151,7 +155,7 @@ h2 {
 }
 .note:nth-child(12) {
     grid-column: 1/3;
-    background-color: #98cf0d;
+    background-color: rgb(190, 190, 78);
 }
 
 
